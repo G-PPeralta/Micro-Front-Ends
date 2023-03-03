@@ -17,7 +17,10 @@ jobs:
 
     steps:
       - uses: actions/checkout@v2
-      - run: npm install
+      - name: Delete node_modules directory for container package
+        run: rm -rf node_modules
+      - name: Install dependencies for container package
+        run: npm install
       - run: npm run build
 
       - uses: shinyinc/action-aws-cli@v1.2
