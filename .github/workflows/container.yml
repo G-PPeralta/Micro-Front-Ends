@@ -17,6 +17,8 @@ jobs:
 
     steps:
       - uses: actions/checkout@v2
+      - run: npm cache clean --force
+      - run: rm -rf node_modules
       - run: npm ci
       - run: npm run build
         env:
